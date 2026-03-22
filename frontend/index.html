@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Carlos Eduardo de Lima">
+    <meta name="description" content="Projeto desenvolvido para ensinar mais sobre o uso de APIs na prática.">
+    <title>PokéPage</title>
+
+    <style>
+      :root {
+        --bg: #0d1b2a;
+        --card: rgba(255, 255, 255, 0.08);
+        --text: #e0e6f3;
+        --accent: #38bdf8;
+        --accent2: #f97316;
+        --border: rgba(255, 255, 255, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top, #1b263b 0%, #0d1b2a 60%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        width: min(92vw, 580px);
+        background: linear-gradient(135deg, rgba(9, 19, 34, 0.95), rgba(18, 33, 58, 0.95));
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 14px 50px rgba(0, 0, 0, 0.35);
+        padding: 30px;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 22px;
+        font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+        letter-spacing: 0.5px;
+      }
+
+      #pokemon_digitado {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        outline: none;
+        font-size: 1rem;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      #pokemon_digitado:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+      }
+
+      #btnEnviar {
+        margin-top: 14px;
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(120deg, #0ea5e9, #f97316);
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        transition: transform 0.17s ease, filter 0.17s ease;
+      }
+
+      #btnEnviar:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+      }
+
+      #response {
+        margin-top: 18px;
+        min-height: 140px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        padding: 14px;
+        color: var(--text);
+      }
+
+      #response p {
+        margin: 0.35rem 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main id="main">
+      <h1>Digite o nome do Pokémon desejado:</h1>
+      <input id="pokemon_digitado" type="text" placeholder="Ex: Pikachu..." required>
+      <button id="btnEnviar">Enviar</button>
+      <div id="response"></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
