@@ -6,107 +6,89 @@
     <meta name="author" content="Carlos Eduardo de Lima">
     <meta name="description" content="Projeto desenvolvido para ensinar mais sobre o uso de APIs na prática.">
     <title>PokéPage</title>
-
-    <style>
-      :root {
-        --bg: #0d1b2a;
-        --card: rgba(255, 255, 255, 0.08);
-        --text: #e0e6f3;
-        --accent: #38bdf8;
-        --accent2: #f97316;
-        --border: rgba(255, 255, 255, 0.2);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Roboto, Arial, sans-serif;
-        color: var(--text);
-        background: radial-gradient(circle at top, #1b263b 0%, #0d1b2a 60%);
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      main {
-        width: min(92vw, 580px);
-        background: linear-gradient(135deg, rgba(9, 19, 34, 0.95), rgba(18, 33, 58, 0.95));
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        box-shadow: 0 14px 50px rgba(0, 0, 0, 0.35);
-        padding: 30px;
-      }
-
-      h1 {
-        margin-top: 0;
-        margin-bottom: 22px;
-        font-size: clamp(1.1rem, 2.2vw, 1.8rem);
-        letter-spacing: 0.5px;
-      }
-
-      #pokemon_digitado {
-        width: 100%;
-        padding: 12px 14px;
-        border-radius: 10px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.08);
-        color: var(--text);
-        outline: none;
-        font-size: 1rem;
-        transition: border 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      #pokemon_digitado:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
-      }
-
-      #btnEnviar {
-        margin-top: 14px;
-        width: 100%;
-        padding: 12px;
-        background: linear-gradient(120deg, #0ea5e9, #f97316);
-        border: none;
-        border-radius: 10px;
-        color: #fff;
-        font-weight: 700;
-        font-size: 1rem;
-        letter-spacing: 0.3px;
-        cursor: pointer;
-        transition: transform 0.17s ease, filter 0.17s ease;
-      }
-
-      #btnEnviar:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.05);
-      }
-
-      #response {
-        margin-top: 18px;
-        min-height: 140px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: var(--card);
-        padding: 14px;
-        color: var(--text);
-      }
-
-      #response p {
-        margin: 0.35rem 0;
-      }
-    </style>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
 
   <body>
-    <main id="main">
-      <h1>Digite o nome do Pokémon desejado:</h1>
-      <input id="pokemon_digitado" type="text" placeholder="Ex: Pikachu..." required>
-      <button id="btnEnviar">Enviar</button>
-      <div id="response"></div>
+    <main id="main" class="container">
+      <header class="header">
+        <div class="brand">
+          <span class="brand-mark">◎</span>
+          <span class="brand-text">PokéPage</span>
+        </div>
+        <nav class="site-nav">
+          </div>
+        </nav>
+      </header>
+
+      <section id="inicio" class="hero-block">
+        <h1 class="hero-title">Descubra e explore Pokémon com visual oficial</h1>
+        <p class="hero-subtitle">Digite o nome do seu Pokémon favorito e veja arte oficial, habilidades e atributos, consumindo dados diretamente da PokéAPI.</p>
+        <div class="pills">
+          <span class="pill">Busca em tempo real</span>
+          <span class="pill">Arte oficial</span>
+          <span class="pill">Habilidades & atributos</span>
+        </div>
+      </section>
+
+      <section id="explorar" class="search">
+        <div class="search-row">
+          <input id="pokemon_digitado" class="input" type="text" placeholder="Busque por nome (ex: Pikachu, bulbasaur)" required>
+          <button id="btnEnviar" class="button">
+            <span class="button-glow"></span>
+            Buscar
+          </button>
+        </div>
+        <div class="hint">Dica: use letras minúsculas ou maiúsculas, funciona dos dois jeitos</div>
+      </section>
+
+      <section id="response" class="panel">
+        <div class="placeholder">
+          <div class="radar"></div>
+          <div class="placeholder-text">Nada por aqui ainda. Busque um Pokémon para ver detalhes.</div>
+        </div>
+      </section>
+
+      <section id="sobre" class="section">
+        <h2 class="section-heading">Sobre este projeto</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3 class="info-title">O que é</h3>
+            <p class="info-text">Uma página interativa que consome a PokéAPI para apresentar informações de Pokémon de forma visual e dinâmica.</p>
+          </div>
+          <div class="info-card">
+            <h3 class="info-title">O que faz</h3>
+            <p class="info-text">Permite pesquisar por nome e visualizar arte oficial, tipos, habilidades e atributos base em um card estilizado.</p>
+          </div>
+          <div class="info-card">
+            <h3 class="info-title">Motivo</h3>
+            <p class="info-text">A ideia foi aprender mais sobre APIs de um jeito descontraído e divertido, unindo tema de anime com prática de front-end.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="como-usar" class="section">
+        <h2 class="section-heading">Como usar</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3 class="info-title">1. Digite</h3>
+            <p class="info-text">Informe o nome do Pokémon (ex: pikachu, bulbasaur, charizard) no campo de busca.</p>
+          </div>
+          <div class="info-card">
+            <h3 class="info-title">2. Busque</h3>
+            <p class="info-text">Pressione Enter ou clique em Buscar. Os dados são obtidos em tempo real da PokéAPI.</p>
+          </div>
+          <div class="info-card">
+            <h3 class="info-title">3. Explore</h3>
+            <p class="info-text">Veja a arte oficial, os tipos, as habilidades e os atributos apresentados no card.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div>Feito com PokéAPI • Projeto para aprender mais sobre APIs de forma divertida.</div>
+        <div>© 2026 PokéPage</div>
+      </footer>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
